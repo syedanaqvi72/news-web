@@ -80,12 +80,14 @@ super();
    async componentDidMount(){
       console.log("cdm");
       
-            let url = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=ad82d0fce6074bc8a0eb2fab70e1b8cd";
+            let url = "https://newsapi.org/v2/top-headlines?country=us}&category=business&apiKey=ad82d0fce6074bc8a0eb2fab70e1b8cd";
             let response = await fetch(url);
             let parsedData = await response.json();
             console.log(parsedData);
             this.setState({ articles: parsedData.articles });
+
           }
+          
 
         render()
                 { return (
