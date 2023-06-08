@@ -96,7 +96,7 @@ super();
                            return<div className="col-md-4" key={element.url}>
                      <NewsItem
                      title={element.title? element.title.slice(0, 44):""}
-                     description={npelement.description? element.description.slice(0, 88):""}
+                     description={element.description? element.description.slice(0, 88):""}
                      imageUrl={element.urlToImage}
                      url={element.url}
                      author={element.author}
