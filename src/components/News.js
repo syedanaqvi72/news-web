@@ -74,20 +74,48 @@ super();
   console.log("I am a construtor from this app");
   this.state={
     articles: this.articles,
-    loading: false 
+    loading: false,
+    page:1
   };
+
+  
 }
+
+
+
+
    async componentDidMount(){
       console.log("cdm");
       
-            let url = "https://newsapi.org/v2/top-headlines?country=us}&category=business&apiKey=ad82d0fce6074bc8a0eb2fab70e1b8cd";
+            let url = "https://newsapi.org/v2/top-headlines?country=us}&category=business&apiKey=ad82d0fce6074bc8a0eb2fab70e1b8cd&pageSize=10";
+            let response = await fetch(url);
+            let parsedData = await response.json();
+            console.log(parsedData);
+            this.setState({ articles: parsedData.articles, totalResults:parsedData.totalResults });
+
+          }
+           handlePrevClick =async() =>{
+            console.log("previous");
+            let url = "https://newsapi.org/v2/top-headlines?country=us}&category=business&apiKey=ad82d0fce6074bc8a0eb2fab70e1b8cd&pageSize=10";
             let response = await fetch(url);
             let parsedData = await response.json();
             console.log(parsedData);
             this.setState({ articles: parsedData.articles });
+           }
+           handleNextClick = async () => {
+            console.log();
+            if(this.state.page +1>Math.cell(this.state.totalResults/10)){
 
-          }
-          
+            }
+            else{
+            let url = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=ad82d0fce6074bc8a0eb2fab70e1b8cd&pageSize=10";
+            let response = await fetch(url);
+            let parsedData = await response.json();
+            console.log(parsedData);
+            this.setState({ articles: parsedData.articles });
+            console.log("Next");
+            this.setState({ page: this.state.page + 1 });
+          }} ;
 
         render()
                 { return (
@@ -106,6 +134,14 @@ super();
                              </div>
         })}
         </div>
+        <div className="container d-flex justify-content-between">
+          <button disabled={this.state.page <= 1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}>
+            &larr; Previous
+          </button>
+          <button type="button" className="btn btn-dark" onClick={this.handleNextClick}>
+            Next &rarr;
+          </button>
+      </div>
       </div>
           );}
       }
