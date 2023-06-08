@@ -20,7 +20,7 @@ export class NewsItem extends Component {
     <a href={url} target="_blank" className="btn btn-sm btn-primary" rel="noreferrer">Read More </a>
     <div className="card-footer">
       <p className="card-text">
-      <small className="text-muted">By  :<b> {!author?"Unknow": author}</b> <br></br>on : <u>{new Date(date).GMTString()}</u></small></p>
+      <small className="text-muted">By  :<b> {!author?"Unknow": author}</b> <br></br>on : <u>{date}</u></small></p>
     </div>
    
   </div>
