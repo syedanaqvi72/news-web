@@ -14,8 +14,8 @@ export class NewsItem extends Component {
 <a className="btn btn-primary btn-sm" href="https://facebook.com/dawn.com" role="button" width="6" height="6">Facebook</a>
 <a className="btn btn-primary btn-sm" href="https://twitter.com/dawn.com" role="button" width="6" height="6">twitter</a>
 <a className="btn btn-primary btn-sm" href="https://instagram.com/dawndot.com" role="button" width="6" height="6">Instagram</a>
-    <h5 className="card-title">{title}...</h5>
-    <p className="card-text">{description}...</p>
+    <h5 className="card-title">{title}... <span class="badge bg-secondary">New</span></h5>
+    <p className="card-text">{description}</p>
 
     <a href={url} target="_blank" className="btn btn-sm btn-primary" rel="noreferrer">Read More </a>
     <div className="card-footer">
