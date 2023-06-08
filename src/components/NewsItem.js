@@ -11,9 +11,9 @@ export class NewsItem extends Component {
   <img src={!imageUrl?"https://ichef.bbci.co.uk/news/1024/branded_news/779B/production/_129991603_mediaitem129991112.jpg":imageUrl} className="card-img-top" alt="..."/>
   <div className="card-body">
   <br></br>
-<a className="btn btn-primary" href="https://facebook.com/dawn.com" role="button">Facebook</a>
-<a className="btn btn-primary" href="https://twitter.com/dawn.com" role="button">twitter</a>
-<a className="btn btn-primary" href="https://instagram.com/dawndot.com" role="button">Instagram</a>
+<a className="btn btn-primary btn-sm" href="https://facebook.com/dawn.com" role="button" width="6" height="6">Facebook</a>
+<a className="btn btn-primary btn-sm" href="https://twitter.com/dawn.com" role="button" width="6" height="6">twitter</a>
+<a className="btn btn-primary btn-sm" href="https://instagram.com/dawndot.com" role="button" width="6" height="6">Instagram</a>
     <h5 className="card-title">{title}...</h5>
     <p className="card-text">{description}...</p>
 
