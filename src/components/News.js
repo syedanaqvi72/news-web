@@ -4,6 +4,8 @@ import NewsItem from './NewsItem';
 
 function News() {
   const [news, setNews] = useState([]);
+  const [page, setPage] = useState(1);
+  const [totalResults, setTotalResults]= useState(0);
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -12,6 +14,7 @@ function News() {
           "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=ad82d0fce6074bc8a0eb2fab70e1b8cd"
         );
         setNews(response.data.articles);
+        setTotalResults(response.data.totalResult);
       } catch (error) {
         console.error('Error fetching news:', error);
       }
@@ -26,56 +29,47 @@ function News() {
     let response = await fetch(url);
     let parsedData = await response.json();
     console.log(parsedData);
-    // Update the state using setNews
     setNews(parsedData.articles);
   };
 
   const handleNextClick = async () => {
     console.log();
-    if (this.state.page + 1 > this.state.totalResults / 10) {
-      // Add your logic here
+    if (page + 1 > totalResults / 10) {
+    
     } else {
       let url = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=ad82d0fce6074bc8a0eb2fab70e1b8cd&pageSize=10";
       let response = await fetch(url);
       let parsedData = await response.json();
       console.log(parsedData);
-      // Update the state using setNews
       setNews(parsedData.articles);
       console.log("Next");
-      // Update the page state
-      // ...
+      setPage(page + 1);
     }
   };
 
   return (
-    <div>
-      <h2>Latest News</h2>
-      {news.map((element) => (
-        <div className="col-md-4" key={element.url}>
-          <NewsItem
-            title={element.title ? element.title : ""}
-            description={element.description ? element.description : ""}
-            imageUrl={element.urlToImage}
-            url={element.url}
-            author={element.author}
-            date={element.publishedAt}
-          />
-        </div>
-      ))}
+    <div className='container my-3'>
+    <h1>News1214 -- Topheadlines</h1>
+    <div className="row">
+      {news.map((articles) => {
+        return (
+          <div className="col-md-4" key={articles.url}>
+            <NewsItem
+              title={articles.title ? articles.title : ""}
+              description={articles.description ? articles.description : ""}
+              imageUrl={articles.urlToImage}
+              url={articles.url}
+              author={articles.author}
+              date={articles.publishedAt}
+            />
+          </div>
+        );
+      })}</div>
       <div className="container d-flex justify-content-between">
-        <button
-          disabled={this.state.page <= 1}
-          type="button"
-          className="btn btn-dark"
-          onClick={handlePrevClick}
-        >
+        <button disabled={page <= 1} type="button" className="btn btn-dark" onClick={handlePrevClick}>
           &larr; Previous
         </button>
-        <button
-          type="button"
-          className="btn btn-dark"
-          onClick={handleNextClick}
-        >
+        <button type="button" className="btn btn-dark" onClick={handleNextClick}>
           Next &rarr;
         </button>
       </div>
@@ -84,7 +78,6 @@ function News() {
 }
 
 export default News;
-
 
 
 
