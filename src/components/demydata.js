@@ -104,7 +104,7 @@ export class News extends Component {
   //   }, 
   //   { "source": { "id": null, "name": "Daily Beast" }, "author": "Zachary Petrizzo, Ursula Perano", "title": "Far-Right Turns on Marjorie Taylor Greene—And MTG Hits Back in Text to Matt Gaetz - The Daily Beast", "description": "The far-right has noticed Rep. Marjorie Taylor Greene has been aligning herself more with Speaker Kevin McCarthy. But MTG isn't backing down—and is putting her critics on notice.", "url": "https://www.thedailybeast.com/far-right-turns-on-marjorie-taylor-greeneand-mtg-hits-back-in-text-to-matt-gaetz", "urlToImage": "https://img.thedailybeast.com/image/upload/c_crop,d_placeholder_euli9k,h_405,w_720,x_0,y_0/dpr_2.0/c_limit,w_740/fl_lossy,q_auto/v1685924512/mtg_flip_copy_720_bgbyek", "publishedAt": "2023-06-05T01:50:09Z", "content": "Even before Marjorie Taylor Greene was sworn into Congress, she was a darling of the far-right.\r\nA MAGA soldier from a deep-red district, Greene spent her first few years in office as a thorn in the … [+7239 chars]" }
   // ]
-
+/*
 
   constructor() {
     super();
@@ -266,7 +266,4 @@ function News() {
   );
 }
 
-export default News;
-
-
-
+export default News;*/

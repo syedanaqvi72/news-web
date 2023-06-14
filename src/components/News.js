@@ -4,7 +4,7 @@ import Spinner from './spinner';
 import PropTypes from 'prop-types';
 import InfiniteScroll from "react-infinite-scroll-component";
 
-const News = (props) =>.
+const News = (props) =>{
 
 
   const [articles, setArticles] = useState([]);
@@ -29,7 +29,7 @@ const News = (props) =>.
         setTotalResults(parsedData.totalResults)
         setLoading(false)
       
-        props.setProgress(30);
+        props.setProgress(30);}
 
         useEffect(() => {
           updateNews();
@@ -40,12 +40,12 @@ const News = (props) =>.
    handlePrevClick = async () => {
     setState({ page: this.state.page - 1 });
 
-    this.updateNews();
+    this.updateNews();}
 
   const handleNextClick = async () => {
     setState({ page: this.state.page + 1 });
 
-    this.updateNews();
+    this.updateNews();}
 
     fetchMoreData = async ()=>{
     setState({page:this.state.page+1})
@@ -56,7 +56,7 @@ const News = (props) =>.
       setState({articles:this.state.articles.concat(parsedData.articles),
         totalResults:parsedData.totalResult
       })
-    };
+    };}
       return(
         
 <h1 className='text-cemter' style={( margin: '35px  0px')}>News web -Top{this.capitalizeFirstLetter(props.category)}headlines </h1>    
@@ -93,12 +93,7 @@ const News = (props) =>.
             </button>
           </div>
         </div>
-      );
-    }
-  }
-      }
     
-  
 
 News.defaultProps={
   country:'us',
@@ -107,7 +102,7 @@ News.defaultProps={
 }
 
 News.propTypes={
-  country:PropTypes.string,
+  country:"PropTypes.string",
   pageSize:PropTypes.number,
   category:PropTypes.string,
 }

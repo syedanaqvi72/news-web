@@ -13,7 +13,7 @@ const NewsItem =(props)=>{
                   position:'absolute',
                   right:0
                 }}>
-  <span className='badge rounded-pill bg-dander'>{source}</span>
+
   <div className="card-body">
   <img src={!imageUrl?"https://ichef.bbci.co.uk/news/1024/branded_news/779B/production/_129991603_mediaitem129991112.jpg":imageUrl} className="card-img-top" alt="..."/>
   <div className="card-body">
