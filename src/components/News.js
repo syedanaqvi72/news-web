@@ -1,11 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import NewsItem from './NewsItem';
+import spinner from './spinner';
+import propsTypes from 'prop-types'
+import InfiniteScroll from "react-infinite-scroll-component";
 
-function News() {
-  const [news, setNews] = useState([]);
+const News =() =>{
+
+
+  const [articles, setArticles] = useState([]);
+  const[loading, setLoading] = useState(true)
   const [page, setPage] = useState(1);
   const [totalResults, setTotalResults]= useState(0);
+
+  capitallizeFirstLetter=(string)=>{
+    return string.charAt(0).toUpperCase()+string.slice(1);
+  }
+  const updateNews= async ()=>{
+    this.prop.setPrpgress(10);
+    const url "https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}";
+
+  }
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -76,6 +90,19 @@ function News() {
     </div>
   );
 }
+
+News.defaultProps={
+  country:'us',
+  pageSize: 8,
+  category:'general',
+}
+
+News.propTypes={
+  country:PropTypes.string,
+  pageSize:PropTypes.number,
+  category:PropTypes.string,
+}
+
 
 export default News;
 
